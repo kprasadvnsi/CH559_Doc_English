@@ -1,4 +1,3 @@
-baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "CH559 Doc English"
 theme = "book"
