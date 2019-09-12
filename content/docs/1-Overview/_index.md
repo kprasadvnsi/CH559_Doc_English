@@ -16,4 +16,4 @@ The CH559 has built-in ADC analog-to-digital conversion, four groups of timers a
 
 The following is an internal block diagram of the CH559 for reference only.
 
-![Block_Diagram](/docs/1.Overview/images/block_diagram.png "Block Diagram")
+![Block_Diagram](/docs/1-Overview/images/block_diagram.png "Block Diagram")
