@@ -90,65 +90,73 @@ Remarks: (1), Text in red means it can be addressed by bit; (2), the following i
     <tr><td>PLL_CFG</td><td>B2h</td><td>PLL clock configuration register</td><td>1101 1000b</td></tr>
     <tr><td>PCON</td><td>87h</td><td>Power control register (in power-on reset state)</td><td>0001 0000b</td></tr>
 
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><td rowspan="5">Interrupt control register</td><td>IP_EX</td><td>E9h</td><td>Extended interrupt priority control register</td><td>0000 0000b</td></tr>
+    <tr><td>IE_EX</td><td>E8h</td><td>Extended interrupt enable register</td><td>0000 0000b</td></tr>
+    <tr><td>GPIO_IE</td><td>CFh</td><td>GPIO interrupt enable register</td><td>0000 0000b</td></tr>
+    <tr><td>IP</td><td>B8h</td><td>Interrupt priority control register</td><td>0000 0000b</td></tr>
+    <tr><td>IE</td><td>A8h</td><td>Interrupt enable register</td><td>0000 0000b</td></tr>
 
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><td rowspan="8">Flash-ROM register</td><td>ROM_DATA_H</td><td>8Fh</td><td>flash-ROM data register high byte</td><td>xxxx xxxxb</td></tr>
+    <tr><td>ROM_DATA_L</td><td>8Eh</td><td>Flash-ROM data register low byte</td><td>xxxx xxxxb</td></tr>
+    <tr><td>ROM_DATA</td><td>8Eh</td><td>ROM_DATA_L and ROM_DATA_H form a 16-bit SFR</td><td>xxxxh</td></tr>
+    <tr><td>ROM_STATUS</td><td>86h</td><td>flash-ROM status register (read only)</td><td>1000 0000b</td></tr>
+    <tr><td>ROM_CTRL</td><td>86h</td><td>flash-ROM control register (write only)</td><td>0000 0000b</td></tr>
+    <tr><td>ROM_ADDR_H</td><td>85h</td><td>flash-ROM address register high byte</td><td>xxxx xxxxb</td></tr>
+    <tr><td>ROM_ADDR_L</td><td>84h</td><td>Flash-ROM address register low byte</td><td>xxxx xxxxb</td></tr>
+    <tr><td>ROM_ADDR</td><td>84h</td><td>ROM_ADDR_L and ROM_ADDR_H form a 16-bit SFR</td><td>xxxxh</td></tr>
 
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><td rowspan="24">Port setting register</td><td>XBUS_SPEED</td><td>FDh</td><td>External bus speed configuration register</td><td>1111 1111b</td></tr>
+    <tr><td>XBUS_AUX</td><td>FDh</td><td>External bus auxiliary setting register</td><td>0000 0000b</td></tr>
+    <tr><td>PIN_FUNC</td><td>CEh</td><td>Pin function select register</td><td>0000 0000b</td></tr>
+    <tr><td>P4_CFG</td><td>C7h</td><td>P4 port configuration register</td><td>0000 0000b</td></tr>
+    <tr><td>P5_IN</td><td>C7h</td><td>P5 port input register (read only)</td><td>0000 0000b</td></tr>
+    <tr><td>PORT_CFG</td><td>C6h</td><td>Port configuration register</td><td>0000 1111b</td></tr>
+    <tr><td rowspan="2">P0_PU</td><td rowspan="2">C5h</td><td>P0 port pull-up enable register (En_P0_Pullup=0)</td><td>0000 0000b</td></tr>
+    <tr><td>P0 port pull-up enable register (En_P0_Pullup=1)</td><td>1111 1111b</td></tr>
+
+    <tr><td>P0_DIR</td><td>C4h</td><td>P0 port direction control register</td><td>0000 0000b</td></tr>
+    <tr><td>P4_PU</td><td>C3h</td><td>P4 port pull-up enable register</td><td>1111 1111b</td></tr>
+    <tr><td>P4_DIR</td><td>C2h</td><td>P4 port direction control register</td><td>0000 0000b</td></tr>
+    <tr><td>P4_IN</td><td>C1h</td><td>P4 port input register (read only)</td><td>1111 1111b</td></tr>
+
+    <tr><td>P4_OUT</td><td>C0h</td><td>P4 port output register</td><td>0000 0000b</td></tr>
+    <tr><td>P3_PU</td><td>BFh</td><td>P3 port direction control register</td><td>1111 1111b</td></tr>
+    <tr><td>P3_DIR</td><td>BEh</td><td>P3 port pull-up enable register</td><td>0000 0000b</td></tr>
+    <tr><td>P2_PU</td><td>BDh</td><td>P2 port pull-up enable register</td><td>1111 1111b</td></tr>
+
+    <tr><td>P2_DIR</td><td>BCh</td><td>P2 port direction control register</td><td>0000 0000b</td></tr>
+    <tr><td>P1_PU</td><td>BBh</td><td>P1 port pull-up enable register</td><td>1111 1111b</td></tr>
+    <tr><td>P1_DIR</td><td>BAh</td><td>P1 port direction control register</td><td>0000 0000b</td></tr>
+    <tr><td>P1_IE</td><td>B9h</td><td>P1 port input enable register</td><td>1111 1111b</td></tr>
+
+    <tr><td>P3</td><td>B0h</td><td>P3 port input and output registers</td><td>1111 1111b</td></tr>
+    <tr><td>P2</td><td>A0h</td><td>P2 port input and output registers</td><td>1111 1111b</td></tr>
+    <tr><td>P1</td><td>90h</td><td>P1 port input and output registers</td><td>1111 1111b</td></tr>
+    <tr><td>P0</td><td>80h</td><td>P0 port input and output registers</td><td>1111 1111b</td></tr>
     
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><td rowspan="6">Timer/Counter 0 and 1 registers</td><td>TH1</td><td>8Dh</td><td>Timer1 count high byte</td><td>xxxx xxxxb</td></tr>
+    <tr><td>TH0</td><td>8Ch</td><td>Timer0 count high byte</td><td>xxxx xxxxb</td></tr>
+    <tr><td>TL1</td><td>8Bh3</td><td>Timer1 count low byte</td><td>xxxx xxxxb</td></tr>
+    <tr><td>TL0</td><td>8Ah</td><td>Timer0 count low byte</td><td>xxxx xxxxb</td></tr>
+    <tr><td>TMOD</td><td>89h</td><td>Timer0/1 mode register</td><td>0000 0000b</td></tr>
+    <tr><td>TCON</td><td>88h</td><td>Timer0/1 Control Register</td><td>0000 0000b</td></tr>
+
+    <tr><td rowspan="2">UART0 register</td><td>SBUF</td><td>99h</td><td>UART0 data register</td><td>xxxx xxxxb</td></tr>
+    <tr><td>SCON</td><td>98h</td><td>UART0 control register</td><td>0000 0000b</td></tr>
+
+    <tr><td>1</td><td>TH2</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><td>1</td><td>TL2</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><td>1</td><td>T2COUNT</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><td>1</td><td>T2CAP1H</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><td>1</td><td>T2CAP1L</td><td>3</td><td>4</td><td>5</td></tr>
+    
+    <tr><td>1</td><td>T2CAP1</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><td>1</td><td>RCAP2H</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><td>1</td><td>RCAP2L</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><td>1</td><td>RCAP2</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><td>1</td><td>T2MOD</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><td>1</td><td>T2CON</td><td>3</td><td>4</td><td>5</td></tr>
+
     <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
     <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
     <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
