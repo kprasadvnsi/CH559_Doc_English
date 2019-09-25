@@ -144,40 +144,46 @@ Remarks: (1), Text in red means it can be addressed by bit; (2), the following i
     <tr><td rowspan="2">UART0 register</td><td>SBUF</td><td>99h</td><td>UART0 data register</td><td>xxxx xxxxb</td></tr>
     <tr><td>SCON</td><td>98h</td><td>UART0 control register</td><td>0000 0000b</td></tr>
 
-    <tr><td>1</td><td>TH2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>TL2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>T2COUNT</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>T2CAP1H</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>T2CAP1L</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><td rowspan="11">Timer/Counter 2 Registers</td><td>TH2</td><td>CDh</td><td>Timer2 counter high byte</td><td>0000 0000b</td></tr>
+    <tr><td>TL2</td><td>CCh</td><td>Timer2 counter low byte</td><td>0000 0000b</td></tr>
+    <tr><td>T2COUNT</td><td>CCh</td><td>TL2 and TH2 form a 16-bit SFR</td><td>0000h</td></tr>
+    <tr><td>T2CAP1H</td><td>CDh</td><td>Timer2 capture 1 data high byte (read only)</td><td>xxxx xxxxb</td></tr>
+    <tr><td>T2CAP1L</td><td>CCh</td><td>Timer2 capture 1 data low byte (read only)</td><td>xxxx xxxxb</td></tr>
     
-    <tr><td>1</td><td>T2CAP1</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>RCAP2H</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>RCAP2L</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>RCAP2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>T2MOD</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>T2CON</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><td>T2CAP1</td><td>CCh</td><td>T2CAP1L and T2CAP1H form a 16-bit SFR</td><td>xxxxh</td></tr>
+    <tr><td>RCAP2H</td><td>CBh</td><td>Count reload/capture 2 data register high byte</td><td>0000 0000b</td></tr>
+    <tr><td>RCAP2L</td><td>CAh</td><td>Count reload/capture 2 data register low byte</td><td>0000 0000b</td></tr>
+    <tr><td>RCAP2</td><td>CAh</td><td>RCAP2L and RCAP2H form a 16-bit SFR</td><td>0000h</td></tr>
+    <tr><td>T2MOD</td><td>C9h</td><td>Timer2 mode register</td><td>0000 0000b</td></tr>
+    <tr><td>T2CON</td><td>C8h</td><td>Timer2 Control Register</td><td>0000 0000b</td></tr>
 
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><td rowspan="19">Timer/counter 3 registers</td><td>T3_FIFO_H</td><td>AFh</td><td>Timer3 FIFO high byte</td><td>xxxx xxxxb</td></tr>
+    <tr><td>T3_FIFO_L</td><td>AEh</td><td>Timer3 FIFO low byte</td><td>xxxx xxxxb</td></tr>
+    <tr><td>T3_FIFO</td><td>AEh</td><td>T3_FIFO_L and T3_FIFO_H form a 16-bit SFR</td><td>xxxxh</td></tr>
+    <tr><td>T3_DMA_AH</td><td>ADh</td><td>DMA current buffer address high byte</td><td>0000 xxxxb</td></tr>
+    <tr><td>T3_DMA_AL</td><td>ACh</td><td>DMA current buffer address low byte</td><td>xxxx xxx0b</td></tr>
+    <tr><td>T3_DMA</td><td>ACh</td><td>T3_DMA_AL and T3_DMA_AH form a 16-bit SFR</td><td>0xxxh</td></tr>
+    <tr><td>T3_DMA_CN</td><td>ABh</td><td>DMA residual count register</td><td>0000 0000b</td></tr>
+    <tr><td>T3_CTRL</td><td>AAh</td><td>Timer3 Control Register</td><td>0000 0010b</td></tr>
+
+    <tr><td>T3_STAT</td><td>A9h</td><td>Timer3 Status Register</td><td>0000 0000b</td></tr>
+    <tr><td>T3_END_H</td><td>A7h</td><td>Timer3 counts the final high byte</td><td>xxxx xxxxb</td></tr>
+    <tr><td>T3_END_L</td><td>A6h</td><td>Timer3 counts the final low byte</td><td>xxxx xxxxb</td></tr>
+    <tr><td>T3_END</td><td>A6h</td><td>T3_END_L and T3_END_H form a 16-bit SFR</td><td>xxxxh</td></tr>
+    <tr><td>T3_COUNT_H</td><td>A5h</td><td>Timer3 current count high byte (read only)</td><td>0000 0000b</td></tr>
+    <tr><td>T3_COUNT_L</td><td>A4h</td><td>Timer3 current count low byte (read only)</td><td>0000 0000b</td></tr>
+    <tr><td>T3_COUNT</td><td>A4h</td><td>T3_COUNT_L and T3_COUNT_H form a 16-bit SFR</td><td>0000h</td></tr>
+    <tr><td>T3_CK_SE_H</td><td>A5h</td><td>Timer3 clock divider setting high byte</td><td>0000 0000b</td></tr>
+    <tr><td>T3_CK_SE_L</td><td>A4h</td><td>Timer3 clock divider sets the low byte</td><td>0010 0000b</td></tr>
+    <tr><td>T3_CK_SE</td><td>A4h</td><td>T3_CK_SE_L and T3_CK_SE_H form a 16-bit SFR</td><td>0020h</td></tr>
+    <tr><td>T3_SETUP</td><td>A3h</td><td>Timer3 setup register</td><td>0000 0100b</td></tr>
+
+    <tr><td rowspan="5">PWM1 and PWM2 registers</td><td>PWM_CYCLE</td><td>9Fh</td><td>PWM cycle period register</td><td>xxxx xxxxb</td></tr>
+    <tr><td>PWM_CK_SE</td><td>9Eh</td><td>PWM clock divider setting register</td><td>0000 0000b</td></tr>
+    <tr><td>PWM_CTRL</td><td>9Dh</td><td>PWM control register</td><td>0000 0010b</td></tr>
+    <tr><td>PWM_DATA</td><td>9Ch</td><td>PWM1 data register</td><td>xxxx xxxxb</td></tr>
+    <tr><td>PWM_DATA2</td><td>9Bh</td><td>PWM2 data register</td><td>xxxx xxxxb</td></tr>
+
     <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
     <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
     <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
