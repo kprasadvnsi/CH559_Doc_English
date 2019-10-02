@@ -308,10 +308,166 @@ Remarks: (1), Text in red means it can be addressed by bit; (2), the following i
 
     <tr><td>pLED_*</td><td>298*h</td><td>After bXIR_XSFR is set to 1, this name is used to address the above xSFR with pdata type, which is faster than xdata type addressing.</td><td></td></tr>
 
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-
 </table>
+
+## 5.3 General purpose 8051 register
+
+<div>
+    <p align="center">Table 5.3.1 General 8051 Register List</p>
+</div>
+
+<table>
+    <tr>
+        <th>Name</th><th>Address</th><th>Description</th><th>Reset value</th>
+    </tr>
+    <tr><td>B</td><td>F0h</td><td>B register</td><td>00h</td></tr>
+    <tr><td>A, ACC</td><td>E0h</td><td>accumulator</td><td>00h</td></tr>
+    <tr><td>PSW</td><td>D0h</td><td>program status register</td><td>00h</td></tr>
+    <tr><td rowspan="2">GLOBAL_CFG</td><td rowspan="2">B1h</td><td>Global configuration register (in the bootloader state)</td><td>E0h</td></tr>
+    <tr><td>Global configuration register (in application state)</td><td>C0h</td></tr>
+    <tr><td>CHIP_ID</td><td>A1h</td><td>Chip ID Identifier (Read Only)</td><td>59h</td></tr>
+    <tr><td>SAFE_MOD</td><td>A1h</td><td>Safety Mode Control Register (Write Only)</td><td>00h</td></tr>
+    <tr><td>PCON</td><td>87h</td><td>power control register (in power-on reset state)</td><td>10h</td></tr>
+    <tr><td>DPH</td><td>83h</td><td>data address pointer high 8 bit</td><td>00h</td></tr>
+    <tr><td>DPL</td><td>82h</td><td>data address pointer low 8 bits</td><td>00h</td></tr>
+    <tr><td>DPTR</td><td>82h</td><td>DPL and DPH form 16-bit SFR</td><td>0000h</td></tr>
+    <tr><td>SP</td><td>81h</td><td>stack pointer</td><td>07h</td></tr>
+    
+</table>
+
+### B register (B):
+<table>
+    <tr>
+        <th>Bit</th><th>Name</th><th>Access</th><th>Description</th><th>Reset value</th>
+    </tr>
+    <tr><td>[7:0]</td><td>B</td><td>RW</td><td>Arithmetic operation registers, mainly used for multiplication and division, bit-addressable</td><td>00h</td></tr>
+</table>
+
+### A accumulator (A, ACC):
+<table>
+    <tr>
+        <th>Bit</th><th>Name</th><th>Access</th><th>Description</th><th>Reset value</th>
+    </tr>
+    <tr><td>[7:0]</td><td>A/ACC</td><td>RW</td><td>Arithmetic accumulator, bit addressable</td><td>00h</td></tr>
+</table>
+
+### Program Status Register (PSW):
+<table>
+    <tr>
+        <th>Bit</th><th>Name</th><th>Access</th><th>Description</th><th>Reset value</th>
+    </tr>
+    <tr><td>7</td><td>CY</td><td>RW</td><td><p>Carry flag: Used to record the carry or borrow of the most significant bit when performing arithmetic and logic operations.</p><p>When the 8-bit addition is performed, the most significant bit is set, otherwise it is cleared.</p><p>when 8-bit subtraction is performed If the borrow is borrowed, the bit is set, otherwise it is cleared.</p><p>The logic instruction can make the bit bit or clear.</p></td><td>0</td></tr>
+    <tr><td>6</td><td>AC</td><td>RW</td><td>Auxiliary carry flag: When recording and subtracting, the lower 4 bits have a carry or borrow from the upper 4 bits, AC is set, otherwise cleared.</td><td>0</td></tr>
+    <tr><td>5</td><td>F0</td><td>RW</td><td>Universal flag bit addressable by bit 0: User can define it himself, can be cleared or set by software</td><td>0</td></tr>
+    <tr><td>4</td><td>RS1</td><td>RW</td><td>Register bank select bit high</td><td>0</td></tr>
+    <tr><td>3</td><td>RS0</td><td>RW</td><td>Register bank select bit low</td><td>0</td></tr>
+    <tr><td>2</td><td>OV</td><td>RW</td><td>Overflow flag: When adding or subtracting, the operation result exceeds 8 binary digits, then OV is set to 1, the flag overflows, otherwise cleared 0</td><td>0</td></tr>
+    <tr><td>1</td><td>F1</td><td>RW</td><td>Universal flag bit addressable by bit 1: User can define it, can be cleared or set by software</td><td>0</td></tr>
+    <tr><td>0</td><td>P</td><td>R0</td><td>Parity flag: Record the parity of 1 in accumulator A after the execution of the instruction. P1 for odd number 1 and P for even number 1</td><td>0</td></tr>
+</table>
+
+The state of the processor is stored in the status register PSW and the PSW supports bitwise addressing. The status word includes the carry flag, the auxiliary carry flag for BCD code processing, the parity flag, the overflow flag, and RS0 and RS1 for the working register bank selection. The area in which the working register set is located can be accessed either directly or indirectly.
+
+<div>
+    <p align="center">Table 5.3.2 RS1 and RS0 Working Register Group Selection Table</p>
+</div>
+
+<table>
+    <tr>
+        <th>RS1</th><th>RS0</th><th>Working register set</th>
+    </tr>
+    <tr><td>0</td><td>0</td><td>Group 0 (00h-07h)</td></tr>
+    <tr><td>0</td><td>1</td><td>Group 1 (08h-0Fh)</td></tr>
+    <tr><td>1</td><td>0</td><td>Group 2 (10h-17h)</td></tr>
+    <tr><td>1</td><td>1</td><td>Group 3 (18h-1Fh)</td></tr>
+</table>
+
+<div>
+    <p align="center">Table 5.3.3 Operations that affect the flag bit (X indicates that the flag bit is related to the operation result)</p>
+</div>
+
+<table>
+    <tr>
+        <th>Operation</th><th>CY</th><th>OV</th><th>AC</th>
+    </tr>
+    <tr><td>ADD</td><td>X</td><td>X</td><td>X</td></tr>
+    <tr><td>ADDC</td><td>X</td><td>X</td><td>X</td></tr>
+    <tr><td>SUBB</td><td>X</td><td>X</td><td>X</td></tr>
+    <tr><td>MUL</td><td>0</td><td>X</td><td></td></tr>
+    <tr><td>DIV</td><td>0</td><td>X</td><td></td></tr>
+    <tr><td>DA A</td><td>X</td><td></td><td></td></tr>
+    <tr><td>RRC A</td><td>X</td><td></td><td></td></tr>
+    <tr><td>RLC A</td><td>X</td><td></td><td></td></tr>
+    <tr><td>CJNE</td><td>X</td><td></td><td></td></tr>
+    <tr><td>SETB C</td><td>1</td><td></td><td></td></tr>
+    <tr><td>CLR C</td><td>0</td><td></td><td></td></tr>
+    <tr><td>CPL C</td><td>X</td><td></td><td></td></tr>
+    <tr><td>MOV C, bit</td><td>X</td><td></td><td></td></tr>
+    <tr><td>ANL C, bit</td><td>X</td><td></td><td></td></tr>
+    <tr><td>ANL C,/bit</td><td>X</td><td></td><td></td></tr>
+    <tr><td>ORL C, bit</td><td>X</td><td></td><td></td></tr>
+    <tr><td>ORL C,/bit</td><td>X</td><td></td><td></td></tr>
+</table>
+
+### Data Address Pointer (DPTR):
+<table>
+    <tr>
+        <th>Bit</th><th>Name</th><th>Access</th><th>Description</th><th>Reset value</th>
+    </tr>
+    <tr><td>[7:0]</td><td>DPL</td><td>RW</td><td>Data pointer low byte</td><td>00h</td></tr>
+    <tr><td>[7:0]</td><td>DPH</td><td>RW</td><td>Data pointer high byte</td><td>00h</td></tr>
+</table>
+
+DPL and DPH form a 16-bit data pointer DPTR for accessing xSFR, xBUS, xRAM data memory or program memory. The actual DPTR corresponds to the physical 16-bit data pointers of DPTR0 and DPTR1, which are dynamically selected by DPS in XBUS_AUX.
+
+### Stack pointer (SP):
+<table>
+    <tr>
+        <th>Bit</th><th>Name</th><th>Access</th><th>Description</th><th>Reset value</th>
+    </tr>
+    <tr><td>[7:0]</td><td>SP</td><td>RW</td><td>Stack pointer, mainly used for program calls and interrupt calls, and data in and out of the stack</td><td>07h</td></tr>
+</table>
+
+Stack specific functions: protect endpoints and protect the site, and manage them on a first-come, first-out basis. When the stack is pushed, the SP pointer is automatically incremented by 1, and the data or breakpoint information is saved. When the stack is taken, the SP pointer points to the data unit, and the SP pointer is automatically decremented by 1. The initial value of the SP after reset is 07h, and the corresponding default stack storage starts at 08h.
+
+## 5.4 Special registers
+
+Global configuration register (GLOBAL_CFG), writable only in safe mode:
+
+<table>
+    <tr>
+        <th>Bit</th><th>Name</th><th>Access</th><th>Description</th><th>Reset value</th>
+    </tr>
+    <tr><td>[7:6]</td><td>Reserved</td><td>RO</td><td>Fixed value 11</td><td>11b</td></tr>
+    <tr><td>5</td><td>bBOOT_LOAD</td><td>RO</td><td><p>The Boot loader status bit is used to distinguish between the ISP bootloader status or the application state: set when the power is turned on, and cleared to 0 when the software is reset.
+</p><p>For chips with an ISP bootloader, this bit is 1 indicates that the software has never been reset, usually the ISP bootloader state that was run after power-up. this bit is 0 indicating that the software has been reset, usually the application state</p></td><td>1</td></tr>
+    <tr><td>4</td><td>bSW_RESET</td><td>RW</td><td>Software reset control bit: Set to 1 to cause software reset, hardware auto-zero</td><td>0</td></tr>
+    <tr><td>3</td><td>bCODE_WE</td><td>RW</td><td>Flash-ROM write enable bit: This bit is 0 for write protection; 1 for Flash-ROM writable erasable</td><td>0</td></tr>
+    <tr><td>2</td><td>bDATA_WE</td><td>RW</td><td>DataFlash area write enable bit of Flash-ROM: This bit is 0 for write protection; 1 is for DataFlash area to be erasable and erasable</td><td>0</td></tr>
+    <tr><td>1</td><td>bXIR_XSFR</td><td>RW</td><td><p>MOVX_@R0/R1 instruction access range control bits:</p><p>This bit is 0 to allow access to all xdata regions xRAM/xBUS/xSFR.</p><p>This bit is 1 for access to xSFR and cannot access xRAM/xBUS</p></td><td>0</td></tr>
+    <tr><td>0</td><td>bWDOG_EN</td><td>RW</td><td>Watchdog reset enable bit: This bit is 0. The watchdog is only used as a timer. this bit is 1 to allow a watchdog reset when the timer overflows.</td><td>0</td></tr>
+</table>
+
+### Chip ID (CHIP_ID):
+<table>
+    <tr>
+        <th>Bit</th><th>Name</th><th>Access</th><th>Description</th><th>Reset value</th>
+    </tr>
+    <tr><td>[7:0]</td><td>CHIP_ID</td><td>RO</td><td>Fixed value 59h for identification chip</td><td>59h</td></tr>
+</table>
+
+### Safe Mode Control Register (SAFE_MOD):
+<table>
+    <tr>
+        <th>Bit</th><th>Name</th><th>Access</th><th>Description</th><th>Reset value</th>
+    </tr>
+    <tr><td>[7:0]</td><td>SAFE_MOD</td><td>WO</td><td>Used to enter or terminate safe mode</td><td>00h</td></tr>
+</table>
+
+**Some SFRs can only write data in safe mode, and are always read-only in non-secure mode. Steps to enter safe mode:**
+
+1. write 55h to the register.
+2. then write AAh to the register.
+3. After that, about 13 to 23 system main frequency cycles are in safe mode, and one or more security class SFRs or ordinary SFRs can be rewritten during the validity period.
+4. automatically terminate the safe mode after the above validity period.
+5. Or write any value to this register to terminate the safe mode early.
