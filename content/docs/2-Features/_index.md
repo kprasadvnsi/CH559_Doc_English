@@ -1,6 +1,7 @@
 ---
 title: 2. Features
 type: docs
+weight: 2
 BookToC: false
 ---
 

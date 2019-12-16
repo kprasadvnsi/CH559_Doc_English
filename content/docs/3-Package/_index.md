@@ -1,6 +1,7 @@
 ---
 title: 3. Package
 type: docs
+weight: 3
 BookToC: false
 ---
 

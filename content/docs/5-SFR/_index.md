@@ -1,6 +1,7 @@
 ---
 title: 5. Special function register SFR
 type: docs
+weight: 5
 BookToC: false
 ---
 

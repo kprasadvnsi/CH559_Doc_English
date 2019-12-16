@@ -1,6 +1,7 @@
 ---
 title: 4. Pin descriptions
 type: docs
+weight: 4
 BookToC: false
 ---
 

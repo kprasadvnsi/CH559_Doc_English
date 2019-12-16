@@ -1,6 +1,7 @@
 ---
 title: 6. Memory structure
 type: docs
+weight: 6
 BookToC: false
 ---
 

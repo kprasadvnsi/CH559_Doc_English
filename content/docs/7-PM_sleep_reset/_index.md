@@ -1,6 +1,7 @@
 ---
 title: 7. Power management
 type: docs
+weight: 7
 BookToC: false
 ---
 
