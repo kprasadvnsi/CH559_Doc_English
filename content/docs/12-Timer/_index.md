@@ -147,7 +147,7 @@ Timer2 is a 16-bit auto-reload timer/counter. It is configured through the T2CON
 
 <table>
     <tr>
-        <th>Bit</th><th>Name</th><th>Access</th><th>Description</th><th>Reset value</th>
+        <th>Bit</th><th>Name</th><th>Access</th><th colspan="2">Description</th><th>Reset value</th>
     </tr>
     <tr><td>7</td><td>bTMR_CLK</td><td>RW</td><td colspan="2">The fast clock mode enable of the T0 / T1 / T2 timer of the fast clock has been selected. If this bit is 1, the system clock Fsys without frequency division is used as the count clock. If this bit is 0, the frequency division clock is used. This bit has no effect on the timer that selects the standard clock</td><td>0</td></tr>
     <tr><td>6</td><td>bT2_CLK</td><td>RW</td><td colspan="2">Timer2 internal clock frequency selection bit. This bit is 0 to select the standard clock. The timing / counting mode is Fsys / 12. UART0 clock mode is Fsys / 4. This bit is 1 to select the fast clock. = 0) or Fsys (bTMR_CLK = 1), the UART0 clock mode is Fsys / 2 (bTMR_CLK = 0) or Fsys (bTMR_CLK = 1)</td><td>0</td></tr>
