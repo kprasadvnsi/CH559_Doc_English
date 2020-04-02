@@ -1,3 +1,13 @@
 languageCode = "en-us"
 title = "CH559 Doc English"
 theme = "book"
+
+# Needed for mermaid/katex shortcodes
+[markup]
+    [markup.goldmark.renderer]
+        unsafe = true
+
+    [markup.tableOfContents]
+        startLevel = 1
+
+BookSearch = true
