@@ -40,3 +40,7 @@ hugo server
 ```
 
 Then visit http://localhost:1313
+
+# Credits
+
++ Thomas ([usbman](https://github.com/usbman01)) for Chapter 16. USB Controller
